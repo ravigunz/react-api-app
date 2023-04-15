@@ -16,7 +16,7 @@ export default function AddressLayout() {
 
   return (
     <div>
-      <h2 style={{ textAlign: "left"}}>Address</h2>
+      <h2 style={{ textAlign: "left" }}>Address</h2>
       {isLoading === true ? (
         <div>
           <h2>Loading.....</h2>
@@ -25,7 +25,14 @@ export default function AddressLayout() {
         address.map((val, key) => {
           return (
             <div key={key}>
-              <p style={{ textAlign: "left" }}>{val.address.street + ', '}{val.address.city + ', '}{val.address.zipcode}</p>
+              <p style={{ textAlign: "left" }}>
+                {val.address.street + ", "}
+                {val.address.suite + ", "}
+                {val.address.city + ", "}
+                {val.address.zipcode + ", (Geo: Lat- "}
+                {val.address.geo.lat + ", "}
+                {val.address.geo.lng + ")"}
+              </p>
             </div>
           );
         })
